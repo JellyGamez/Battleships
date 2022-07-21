@@ -1,0 +1,15 @@
+D:\Workspace\Academy\Battleships\Battleships\obj\Debug\net6.0\Battleships.csproj.AssemblyReference.cache
+D:\Workspace\Academy\Battleships\Battleships\obj\Debug\net6.0\Battleships.GeneratedMSBuildEditorConfig.editorconfig
+D:\Workspace\Academy\Battleships\Battleships\obj\Debug\net6.0\Battleships.AssemblyInfoInputs.cache
+D:\Workspace\Academy\Battleships\Battleships\obj\Debug\net6.0\Battleships.AssemblyInfo.cs
+D:\Workspace\Academy\Battleships\Battleships\obj\Debug\net6.0\Battleships.csproj.CoreCompileInputs.cache
+D:\Workspace\Academy\Battleships\Battleships\bin\Debug\net6.0\Battleships.exe
+D:\Workspace\Academy\Battleships\Battleships\bin\Debug\net6.0\Battleships.deps.json
+D:\Workspace\Academy\Battleships\Battleships\bin\Debug\net6.0\Battleships.runtimeconfig.json
+D:\Workspace\Academy\Battleships\Battleships\bin\Debug\net6.0\Battleships.dll
+D:\Workspace\Academy\Battleships\Battleships\bin\Debug\net6.0\Battleships.pdb
+D:\Workspace\Academy\Battleships\Battleships\obj\Debug\net6.0\Battleships.dll
+D:\Workspace\Academy\Battleships\Battleships\obj\Debug\net6.0\refint\Battleships.dll
+D:\Workspace\Academy\Battleships\Battleships\obj\Debug\net6.0\Battleships.pdb
+D:\Workspace\Academy\Battleships\Battleships\obj\Debug\net6.0\Battleships.genruntimeconfig.cache
+D:\Workspace\Academy\Battleships\Battleships\obj\Debug\net6.0\ref\Battleships.dll
