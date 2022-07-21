@@ -4,6 +4,7 @@ namespace Core
     {
         empty,
         hit,
-        miss
+        miss,
+        occupied
     }
 }

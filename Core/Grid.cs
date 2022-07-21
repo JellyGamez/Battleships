@@ -25,11 +25,23 @@ namespace Core
         }
         public void Display()
         {
-            for (int i = 0; i < SizeX; i++, Console.Write("\n"))
-                for (int j = 0; j < SizeY; j++)
+            Console.Write("  ");
+            for (int i = 1; i <= SizeX; i++)
+                Console.Write(i + " ");
+            Console.WriteLine();
+            for (int i = 0; i < SizeX; i++, Console.WriteLine())
                 {
-                    Console.Write(Cells[i, j] + " ");
+                    Console.Write(i + 1 + " ");
+                    for (int j = 0; j < SizeY; j++)
+                    {
+                        Console.Write(Cells[i, j] + " ");
+                    }
                 }
+        }
+        
+        public void Occupy(int x, int y)
+        {
+            Cells[x - 1, y - 1].Type = CellType.occupied;
         }
     }
 }

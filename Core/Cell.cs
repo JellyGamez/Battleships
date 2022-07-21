@@ -2,7 +2,7 @@ namespace Core
 {
     class Cell
     {
-        public CellType Type {get; private set;}
+        public CellType Type {get; set;}
         
         public Cell()
         {
@@ -15,11 +15,13 @@ namespace Core
                 {
                     default:
                     case CellType.empty:
-                        return "*";
+                        return " ";
                     case CellType.hit:
-                        return "@";
+                        return "*";
                     case CellType.miss:
                         return "x";
+                    case CellType.occupied:
+                        return "@";
                 }
         }
     }
