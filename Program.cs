@@ -17,3 +17,6 @@ for (int i = 1; i <= ships; i++)
     } while (invalid);
 }
 grid.Display();
+
+//get coordinatines by string
+//validation refactoring - where does it belong
