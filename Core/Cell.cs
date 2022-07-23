@@ -15,13 +15,13 @@ namespace Core
                 {
                     default:
                     case CellType.empty:
-                        return " ";
+                        return "~";
                     case CellType.hit:
                         return "*";
                     case CellType.miss:
                         return "x";
-                    case CellType.occupied:
-                        return "@";
+                    case CellType.ship:
+                        return "O";
                 }
         }
     }

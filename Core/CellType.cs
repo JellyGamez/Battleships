@@ -5,6 +5,6 @@ namespace Core
         empty,
         hit,
         miss,
-        occupied
+        ship
     }
 }
