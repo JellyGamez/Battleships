@@ -5,15 +5,21 @@ var ships = 3;
 
 for (int i = 1; i <= ships; i++)
 {
-    bool invalid = true;
+    bool invalid;
     do {
-        int row = Print.GetInput("Row: ");
-        int column = Print.GetInput("Column: ");
-        invalid = !(row >= 1 && column >= 1 && row <= grid.SizeX && column <= grid.SizeY);
-        if (invalid)
-            Console.WriteLine("Invalid options");
-        else
+        invalid = false;
+        Console.Write("Enter row and column separated by space: ");
+        string[] input = Console.ReadLine().Split(" ");
+        string row = input[0], column = input[1];
+        try 
+        {
             grid.Occupy(row, column);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            invalid = true;
+        }
     } while (invalid);
 }
 grid.Display();

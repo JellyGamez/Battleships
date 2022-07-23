@@ -38,10 +38,14 @@ namespace Core
                     }
                 }
         }
-        
-        public void Occupy(int x, int y)
+        public void Occupy(string row, string column)
         {
-            Cells[x - 1, y - 1].Type = CellType.occupied;
+            int x = Int32.Parse(row);
+            int y = Int32.Parse(column);
+            if (x >= 1 && y >= 1 && x <= SizeX && y <= SizeY)
+                Cells[x - 1, y - 1].Type = CellType.occupied;
+            else
+                throw new Exception("Invalid options");
         }
     }
 }
