@@ -1,28 +1,31 @@
 ﻿using Core;
 
-var grid = new Grid(10, 10);
 var ships = 3;
+var user = new User("player");
+var AI = new User("AI");
+var random = new Random();
+AI.PlaceShipsRandomly(ships);
 
+// TODO: Allow user to choose to place ships manually or randomly.
+// TODO: Implement feature to play against AI
+// TODO: Different ship sizes
+// TODO: Ship orientation
+// TODO: Implement win/lose feature
+// TODO: Explain Design Pattern for Attack strategy for AI
+// TODO: Implement rounds + score (Optional)
+// TODO: Improve UI using colors, dividers, etc. (Optional) 
 
 for (int i = 1; i <= ships; i++)
 {
-    grid.Display();
-    bool invalid = true;
-    do {
-        Console.Write("Enter row and column separated by space: ");
-        string[] input = Console.ReadLine().Split(" ");
-        string row = input[0], column = input[1];
-        try 
-        {
-            int x = Int32.Parse(row);
-            int y = Int32.Parse(column);
-            grid.Occupy(x, y);
-            invalid = false;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
-    } while (invalid);
+    user.Grid.Display();
+    var coordinates = Print.GetValidCoordinates(user.Grid);
+    user.Grid.Occupy(coordinates, CellType.ship);
 }
-grid.Display();
+
+
+while (true)
+{
+    user.AttackGrid.Display();
+    var coordinates = Print.GetValidCoordinates(user.AttackGrid);
+    user.Attack(coordinates, AI);
+}
