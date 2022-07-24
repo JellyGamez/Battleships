@@ -59,7 +59,7 @@ namespace Core
         public void ValidateCoordinates(int x, int y)
         {
             if (IsOutOfBounds(x, y))
-                throw new Exception("Invalid coordinates (out of bounds)");
+                throw new Exception("Invalid input (out of bounds)");
             if (!IsEmpty(x, y))
                 throw new Exception("Cell is already occupied");
         }

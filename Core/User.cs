@@ -42,7 +42,12 @@ namespace Core
             for (int i = 1; i <= ships; i++)
                 Grid.Occupy(Grid.GetRandomCoordinates(), CellType.ship);
         }
-
+        
+        public void PlaceShipsManually(int ships)
+        {
+            for (int i = 1; i <= ships; i++)
+                Grid.Occupy(Print.GetValidCoordinates(Grid), CellType.ship);
+        }
         public void AttackRandomly(User enemy)
         {
             Attack(AttackGrid.GetRandomCoordinates(), enemy);
