@@ -90,5 +90,10 @@ namespace Core
         {
             return Cells[x - 1, y - 1].Type;
         }
+
+        public CellType GetCellType(KeyValuePair<int, int> coordinates)
+        {
+            return GetCellType(coordinates.Key, coordinates.Value);
+        }
     }
 }

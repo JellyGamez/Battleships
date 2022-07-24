@@ -1,56 +1,36 @@
+using Core.Strategies;
+
 namespace Core
 {
-    class User
+    class User : IUser
     {
-        public string Name { get; private set; }
-        public Grid Grid, AttackGrid;
-
+        public string Name { get; protected set; }
+        public Grid Grid {get; set;}
+        public Grid AttackGrid {get; set;}
+        public int ShipCount {get; set;}
+        public bool HasLost {get => ShipCount == 0;}
+        public IAttackStrategy AttackStrategy {get; set;}
+        public IShipPlacementStrategy ShipPlacementStrategy {get; set;}
         public User(string name)
         {
             Name = name;
             Grid = new Grid(10, 10);
             AttackGrid = new Grid(10, 10);
+            ShipCount = 3;
         }
+
+       public void Attack(IUser enemy){
+            AttackStrategy.Attack(enemy, AttackGrid);
+       }
 
         public override string ToString()
         {
             return String.Empty;
         }
 
-        public void Attack(int x, int y, User enemy)
+        public void PlaceShips(int ships)
         {
-            switch (enemy.Grid.GetCellType(x, y))
-            {
-                default:
-                case CellType.empty:
-                    AttackGrid.Occupy(x, y, CellType.miss);
-                    break;
-                case CellType.ship:
-                    AttackGrid.Occupy(x, y, CellType.hit);
-                    break;
-            }
-        }
-
-        public void Attack(KeyValuePair<int, int> coordinates, User enemy)
-        {
-            int x = coordinates.Key, y = coordinates.Value;
-            Attack(x, y, enemy);
-        }
-
-        public void PlaceShipsRandomly(int ships)
-        {
-            for (int i = 1; i <= ships; i++)
-                Grid.Occupy(Grid.GetRandomCoordinates(), CellType.ship);
-        }
-        
-        public void PlaceShipsManually(int ships)
-        {
-            for (int i = 1; i <= ships; i++)
-                Grid.Occupy(Print.GetValidCoordinates(Grid), CellType.ship);
-        }
-        public void AttackRandomly(User enemy)
-        {
-            Attack(AttackGrid.GetRandomCoordinates(), enemy);
+            ShipPlacementStrategy.PlaceShips(ships, Grid);
         }
     }
 }

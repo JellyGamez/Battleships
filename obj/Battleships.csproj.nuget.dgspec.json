@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alex\\Documents\\GitHub\\Battleships\\Battleships.csproj": {}
+    "D:\\Workspace\\Academy\\Battleships\\Battleships\\Battleships.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alex\\Documents\\GitHub\\Battleships\\Battleships.csproj": {
+    "D:\\Workspace\\Academy\\Battleships\\Battleships\\Battleships.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alex\\Documents\\GitHub\\Battleships\\Battleships.csproj",
+        "projectUniqueName": "D:\\Workspace\\Academy\\Battleships\\Battleships\\Battleships.csproj",
         "projectName": "Battleships",
-        "projectPath": "C:\\Users\\Alex\\Documents\\GitHub\\Battleships\\Battleships.csproj",
-        "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alex\\Documents\\GitHub\\Battleships\\obj\\",
+        "projectPath": "D:\\Workspace\\Academy\\Battleships\\Battleships\\Battleships.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\Workspace\\Academy\\Battleships\\Battleships\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

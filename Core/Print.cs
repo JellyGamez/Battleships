@@ -15,6 +15,18 @@ namespace Core
             Console.WriteLine($"Round #{round}\n");
         }
 
+        public static void Header(string label){
+            Divider(label.Length + 2);
+            Console.WriteLine(label);
+            Divider(label.Length + 2);
+        }
+
+        public static void Divider(int width){
+            for(var i = 0; i < width; i++)
+                Console.Write("-");
+            Console.WriteLine();
+        }
+
         public static KeyValuePair<int, int> GetValidCoordinates(Grid grid)
         {
             int x = 0, y = 0;
