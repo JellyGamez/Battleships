@@ -95,5 +95,49 @@ namespace Core
         {
             return GetCellType(coordinates.Key, coordinates.Value);
         }
+
+        public bool ValidOrientation(List<KeyValuePair<int, int>> ships, KeyValuePair<int, int> ship)
+        {
+            switch (ships.Count)
+            {
+                case 0:
+                    return true;
+                case 1:
+                    if (ships[0].Value == ship.Value)
+                    {
+                        if (ships[0].Key == ship.Key - 1 || ships[0].Key == ship.Key + 1)
+                            return true;
+                    }
+                    else if (ships[0].Key == ship.Key)
+                    {
+                        if (ships[0].Value == ship.Value - 1 || ships[0].Value == ship.Value + 1)
+                            return true;
+                    }
+                    return false;
+                default:
+                    if (ships[0].Value == ships[1].Value)
+                    {
+                        if (ship.Value != ships[0].Value)
+                            return false;
+                        foreach (KeyValuePair<int, int> element in ships)
+                        {
+                            if (element.Key == ship.Key - 1 || element.Key == ship.Key + 1)
+                                return true;
+                        }
+                    }
+                    else if (ships[0].Key == ships[1].Key)
+                    {
+                        if (ship.Key != ships[0].Key)
+                            return false;
+                        foreach (KeyValuePair<int, int> element in ships)
+                        {
+                            if (element.Value == ship.Value - 1 || element.Value == ship.Value + 1)
+                                return true;
+                        }
+                    }
+                    return false;
+            }
+            return false;
+        }
     }
 }

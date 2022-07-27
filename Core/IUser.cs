@@ -13,7 +13,7 @@ namespace Core {
 
         abstract public void Attack(IUser enemy);
 
-        public void PlaceShips(int ships);
+        public void PlaceShips();
     }
 
 }

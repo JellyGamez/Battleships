@@ -1,7 +1,6 @@
 ﻿using Core;
 using Core.Strategies;
 
-var ships = 3;
 var player = new User("player");
 player.AttackStrategy = new ManualAttackStrategy();
 
@@ -33,7 +32,7 @@ else
 
 foreach (var user in players)
 {
-    user.PlaceShips(ships);
+    user.PlaceShips();
 }
 
 

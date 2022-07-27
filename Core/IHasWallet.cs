@@ -1,6 +1,0 @@
-namespace Core {
-
-    interface IHasWallet {
-        
-    }
-}

@@ -28,9 +28,9 @@ namespace Core
             return String.Empty;
         }
 
-        public void PlaceShips(int ships)
+        public void PlaceShips()
         {
-            ShipPlacementStrategy.PlaceShips(ships, Grid);
+            ShipPlacementStrategy.PlaceShips(Grid);
         }
     }
 }

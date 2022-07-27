@@ -3,7 +3,7 @@ namespace Core.Strategies {
     abstract class AttackStrategy : IAttackStrategy {
 
         protected void Attack(KeyValuePair<int, int> position, IUser enemy, Grid attackGrid){
-             switch (enemy.Grid.GetCellType(position))
+            switch (enemy.Grid.GetCellType(position))
             {
                 default:
                 case CellType.empty:
