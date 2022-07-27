@@ -2,33 +2,42 @@ namespace Core.Strategies
 {
     class RandomShipPlacementStrategy : IShipPlacementStrategy
     {
-        public Dictionary<int, int> Ships = new Dictionary<int, int>(){
-            {1, 4},
-            {2, 3},
-            {3, 2},
-            {4, 1}
-        };
-        public void PlaceShips(Grid grid)
+
+        public void PlaceShips(Grid grid, List<Ship> ships)
         {
-            foreach (KeyValuePair<int, int> element in Ships)
+            foreach (var ship in ships)
             {
-                List<KeyValuePair<int, int>> CurrentShip = new List<KeyValuePair<int, int>>();
-                for (int i = 1; i <= element.Value; i++)
+                for (int i = 1; i <= ship.Amount; i++)
                 {
-                    bool invalid = true;
-                    do
+                    Console.WriteLine($"{ship} size = {ship.Width}");
+                    var CurrentShip = new List<KeyValuePair<int, int>>();
+
+                    for (int j = 1; j <= ship.Width; j++)
                     {
-                        KeyValuePair<int, int> Coordinates = grid.GetRandomCoordinates();
-                        if (grid.ValidOrientation(CurrentShip, Coordinates))
-                        {
-                            grid.Occupy(Coordinates, CellType.ship);
-                            CurrentShip.Add(Coordinates);
-                            invalid = false;
-                        }
-                    } while (invalid);
-                    grid.Display();
+                        var Coordinates = FindValidPosition(grid, CurrentShip);
+                        grid.Occupy(Coordinates, CellType.ship);
+                        CurrentShip.Add(Coordinates);
+
+                        grid.Display();
+                    }
                 }
             }
+        }
+
+
+        private KeyValuePair<int, int> FindValidPosition(Grid grid, List<KeyValuePair<int, int>> currentShip)
+        {
+            bool invalid = true;
+            KeyValuePair<int, int> coordinates = new KeyValuePair<int, int>();
+
+            do
+            {
+                coordinates = grid.GetRandomCoordinates();
+                invalid = !grid.ValidOrientation(currentShip, coordinates);
+
+            } while (invalid);
+
+            return coordinates;
         }
     }
 }

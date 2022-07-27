@@ -1,16 +1,26 @@
 ﻿using Core;
 using Core.Strategies;
 
-var player = new User("player");
+
+var ships = new List<Ship>();
+
+ships.Add(new Ship("Cruiser", 3));
+ships.Add(new Ship("Fishing Boat", 1, 2));
+ships.Add(new Ship("Battleship", 5));
+ships.Add(new Ship("Destroyer", 2));
+
+var player = new User("player", ships);
 player.AttackStrategy = new ManualAttackStrategy();
 
-var ai = new User("AI");
-ai.AttackStrategy = new RandomAttackStrategy();
-ai.ShipPlacementStrategy = new RandomShipPlacementStrategy();
+
+var ai = new User("AI", ships);
+
+
 var players = new List<IUser>() {
     player,
     ai,
 };
+
 
 
 

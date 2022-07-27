@@ -3,12 +3,12 @@ namespace Core.Strategies
     class ManualShipPlacementStrategy : IShipPlacementStrategy
     {
         public Dictionary<int, int> Ships = new Dictionary<int, int>(){
-            {4, 1},
-            {3, 2},
-            {2, 3},
+            {1, 1},
+            {1, 2},
+            {1, 3},
             {1, 4}
         };
-        public void PlaceShips(Grid grid)
+        public void PlaceShips(Grid grid, List<Ship> ships)
         {
             foreach (KeyValuePair<int, int> element in Ships)
             {

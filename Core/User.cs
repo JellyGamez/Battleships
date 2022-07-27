@@ -11,12 +11,17 @@ namespace Core
         public bool HasLost {get => ShipCount == 0;}
         public IAttackStrategy AttackStrategy {get; set;}
         public IShipPlacementStrategy ShipPlacementStrategy {get; set;}
-        public User(string name)
+        public List<Ship> Ships {get; set;}
+        public User(string name, List<Ship> ships)
         {
             Name = name;
             Grid = new Grid(10, 10);
             AttackGrid = new Grid(10, 10);
-            ShipCount = 3;
+            Ships = ships;
+            ShipCount = ships.Count;
+            AttackStrategy = new RandomAttackStrategy();
+            ShipPlacementStrategy = new RandomShipPlacementStrategy();
+           
         }
 
        public void Attack(IUser enemy){
@@ -30,7 +35,7 @@ namespace Core
 
         public void PlaceShips()
         {
-            ShipPlacementStrategy.PlaceShips(Grid);
+            ShipPlacementStrategy.PlaceShips(Grid, Ships);
         }
     }
 }

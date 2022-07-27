@@ -56,6 +56,12 @@ namespace Core
         {
             Occupy(coordinates.Key, coordinates.Value, type);
         }
+
+        public void Occupy(Vector2 coordinates, CellType type)
+        {
+            Occupy(coordinates.X, coordinates.Y, type);
+        }
+
         public void ValidateCoordinates(int x, int y)
         {
             if (IsOutOfBounds(x, y))
@@ -67,25 +73,34 @@ namespace Core
         {
             ValidateCoordinates(coordinates.Key, coordinates.Value);
         }
+
+        public void ValidateCoordinates(Vector2 coordinates)
+        {
+            ValidateCoordinates(coordinates.X, coordinates.Y);
+        }
+
         public KeyValuePair<int, int> GetRandomCoordinates()
         {
-            var random = new Random();
+            var position = new Vector2();
             bool invalid = true;
-            int x = 0, y = 0;
+            
             do
             {
-                x = random.Next(1, SizeX);
-                y = random.Next(1, SizeY);
+                position = Vector2.Random(SizeX, SizeY);
+        
                 try
                 {
-                    ValidateCoordinates(x, y);
+                    ValidateCoordinates(position.X, position.Y);
                     invalid = false;
                 }
                 catch (Exception e)
                 { }
             } while (invalid);
-            return new KeyValuePair<int, int>(x, y);
+
+            return position.ToKeyValuePair();
         }
+
+
         public CellType GetCellType(int x, int y)
         {
             return Cells[x - 1, y - 1].Type;
@@ -137,7 +152,6 @@ namespace Core
                     }
                     return false;
             }
-            return false;
         }
     }
 }
